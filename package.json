@@ -1,0 +1,21 @@
+{
+  "name": "mle-example",
+  "version": "1.0.0",
+  "description": "a simple example of a implementation of an API with Message Level Encryption communication ",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "mle"
+  ],
+  "author": "teteo",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.1.1",
+    "express": "^4.18.2",
+    "node-jose": "^2.2.0",
+    "nodemon": "^2.0.22"
+  }
+}

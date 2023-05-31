@@ -1,10 +1,11 @@
 require('dotenv').config()
 const express = require('express')
-const {  mle: encryption }  = require('./src/commons/index.js');
-
+const routes = require('./src/routes.js')
 const app = express()
 
+
 app.use(express.json())
+routes(app)
 
 const PORT = 3000
 
@@ -33,26 +34,6 @@ app.get('/', (req, res) => {
   res.send('all ok').status(200)
 })
 
-app.post('/encrypt', async (req, res) => {
-  console.log('encrypt', req.body)
-  const encryptedData = await encryption.encryptData(req.body.data);
-  return res.send(encryptedData).status(200)
-})
-
-app.post('/decrypt', async (req, res) => {
-  console.log('decrypt')
-  const decryptedData = await encryption.decryptData(req.body.data)
-  return res.send(decryptedData).status(200)
-})
-
-// Create RSA keys 
-
-// decrypt the request
-
-// do the processing 
-
-// encrypt the response 
-
-// capture the response before the response is sent to client
-
-
+// TODO: create tests for the encrytp/decrypt module
+// TODO: create a separate routes file
+// TODO: create the route that will handle the requests

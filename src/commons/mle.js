@@ -1,10 +1,9 @@
-const nodeJose = require('node-jose');
+const nodeJose = require('node-jose')
 
 const publicKeyTest = process.env.PUBLIC_KEY
 const privateKeyTest = process.env.PRIVATE_KEY
  
 const encryptData = (data, publicKey) => {
-  console.log(process.env)
   const stringData = typeof data === 'string' ? data : JSON.stringify(data)
   const keyStore = nodeJose.JWK.createKeyStore()
   const encryptionProperties = {
@@ -27,7 +26,6 @@ const encryptData = (data, publicKey) => {
 
 const decryptData = (encryptedData, privateKey) => {  
   const encryptedPayload = typeof encryptedData == 'string' ? JSON.parse(encryptedData) : encryptedData
-  console.log(encryptedPayload)
   const  keystore = nodeJose.JWK.createKeyStore()
     let decProps = {
         alg: 'RSA-OAEP-256',
@@ -36,7 +34,7 @@ const decryptData = (encryptedData, privateKey) => {
     return keystore.add(privateKeyTest, 'pem', decProps)
         .then((key) => {
             return nodeJose.JWE.createDecrypt(key)
-                .decrypt(encryptedPayload.encData)
+                .decrypt(encryptedPayload.data.encData)
                 .then((result) => {
                     return JSON.parse(result.payload)
                 })

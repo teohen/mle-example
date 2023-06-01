@@ -1,11 +1,11 @@
 require('dotenv').config()
 const express = require('express')
-const routes = require('./src/routes.js')
+const { routes: clientsRoutes } = require('./src/clients')
 const app = express()
 
 
 app.use(express.json())
-routes(app)
+clientsRoutes(app)
 
 const PORT = 3000
 
@@ -34,6 +34,8 @@ app.get('/', (req, res) => {
   res.send('all ok').status(200)
 })
 
-// TODO: create tests for the encrytp/decrypt module
-// TODO: create a separate routes file
-// TODO: create the route that will handle the requests
+module.exports = app
+
+// TODO: create the MLE funcionality and the tests for it!
+
+// TODO: create the integration tests for the clients routes

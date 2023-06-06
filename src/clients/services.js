@@ -14,6 +14,6 @@ const get = (id) => {
 
 module.exports = {
   getAll,
-  save, 
+  save,
   get
 }

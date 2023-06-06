@@ -27,7 +27,7 @@ describe('Services SUIT test', () => {
     expect(savedClients.pop()).to.equal(newClient)
   })
   it('Should get one client', () => {
-    const index = chance.integer({ min: 0, max: clientsList.length - 1})
+    const index = chance.integer({ min: 0, max: clientsList.length - 1 })
     const clientId = clientsList[index].id
 
     const client = services.get(clientId)

@@ -7,7 +7,7 @@ const { controller, services } = require('../../src/clients/')
 
 const chance = new Chance()
 
-const getNewClient = () => ({ id: crypto.randomUUID(), name: chance.name(), dateOfBirth: chance.birthday({ type: 'adult' })})
+const getNewClient = () => ({ id: crypto.randomUUID(), name: chance.name(), dateOfBirth: chance.birthday({ type: 'adult' }) })
 
 describe('Clients SUIT test', () => {
 
@@ -31,7 +31,7 @@ describe('Clients SUIT test', () => {
   it('Should find all clients', () => {
     const savedClients = [getNewClient(), getNewClient()]
 
-    sinon.stub(services, 'getAll').returns(savedClients) 
+    sinon.stub(services, 'getAll').returns(savedClients)
 
     const clients = controller.findAll()
     expect(clients).to.deep.equal(savedClients)

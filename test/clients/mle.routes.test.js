@@ -21,7 +21,7 @@ describe('MLE Client routes', () => {
     sinon.stub(mleServices, 'decryptData').returns(mockedDecryptedRequestBody)
 
     const data = await request(app).post('/clients').set({ encrypted: true, 'mle': mleId }).send({ encData: chance.hash({ length: 521 }) }).expect(201)
-    expect(data.body).to.be.deep.equal({encData: mockedEncryptedResponseBody}) 
+    expect(data.body).to.be.deep.equal({ encData: mockedEncryptedResponseBody })
   })
 
   it('Should return 400 when the mle id header is not sent', async () => {

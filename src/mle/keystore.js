@@ -6,7 +6,7 @@ const initKeyStore = () => {
     if (!keyStore) {
         keyStore = nodeJose.JWK.createKeyStore()
     }
-   return keyStore
+    return keyStore
 }
 
 

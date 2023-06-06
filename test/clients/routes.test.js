@@ -9,6 +9,7 @@ const chance = new Chance()
 const fixtures = require('./fixtures.js')
 const app = require('../../index.js')
 const services = require('../../src/clients/services.js')
+const controller = require('../../src/clients/controller.js')
 const expect = chai.expect
 
 describe('Clients routes TEST SUIT', async() => {
@@ -31,9 +32,22 @@ describe('Clients routes TEST SUIT', async() => {
       expect(body.name).to.be.equal(client.name)
       expect(body.dateOfBirth).to.be.equal(client.dateOfBirth)
     } catch(err) {
+      console.log('erro', err)
       throw err
     }
   })
+
+  it('Should return 500 when an internal error happens', async () => {
+    const client = fixtures.getNewClient()
+    delete client.id
+
+    sinon.stub(controller, 'save').throws(new Error('Some Error'))
+
+    const result = await request(app).post('/clients').send(client).expect(500)
+
+    expect(result.text).to.equal('Internal Server Error')
+  })
+
 
   it('Should not create a client when dateOfBirth property is not sent', async () => {
     const client = fixtures.getNewClient()

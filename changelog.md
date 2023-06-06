@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [1.2.0] - 2023-06-06
+
+### Added
+ - Added the mle feature
+ - Added tests for the feature: integration (routes), controller, services, etc
+ - Added the clients services and routes
+
+### Fixed
+ - Creates a separate mle module for handling the services and the management of keys
+ - Removes the encrypt/decrypt routes
+
 ## [1.1.2] - 2023-06-01
 
 ### Added

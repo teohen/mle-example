@@ -1,8 +1,7 @@
 const nodeJose = require('node-jose')
 
- 
 const encryptData = (data, publicKey) => {
-  if (!publicKey) {
+ if (!publicKey) {
     console.log('MISSING PUBLIC KEY')
     throw new Error('Missing public key') 
   }

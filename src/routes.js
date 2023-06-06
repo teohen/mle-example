@@ -4,13 +4,13 @@ const routes = (app) => {
   app.post('/encrypt', async (req, res) => {
     const { body } = req
     const data = await controller.encrypt(body)
-    return res.send(data).status(200)
+    return res.status(200).send(data)
   })
 
   app.post('/decrypt', async (req, res) => {
     const { body } = req
     const data = await controller.decrypt(body)
-    return res.send(data).status(200)
+    return res.status(200).send(data)
   })
 }
 

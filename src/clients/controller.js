@@ -10,13 +10,13 @@ const save = (client) => {
 
 const findAll = () => {
   const clients = services.getAll()
-  return clients  
+  return clients
 }
 
 const find = (id) => {
   const client = services.get(id)
   if (!client) {
-    return null   
+    return null
   }
   return client
 }
